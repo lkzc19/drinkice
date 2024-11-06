@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres
+    container_name: drinkice-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: drinkice
+      POSTGRES_USER: drinkice
+      POSTGRES_PASSWORD: drinkice
+    ports:
+      - 9432:5432
+  redis:
+    image: redis
+    container_name: drinkice-redis
+    restart: always
+    ports:
+      - "9379:6379"
