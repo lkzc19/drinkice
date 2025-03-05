@@ -1,12 +1,21 @@
 server:
-  port: 9100
+  port: 9101
 
 spring:
   application:
-    name: cabinet.java
+    name: loafer.java
+  profiles:
+    active: dev
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: org.example.cabinet.model
+  type-aliases-package: org.example.loafer.model
   configuration:
     map-underscore-to-camel-case: true
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: AUTO
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台输出日志

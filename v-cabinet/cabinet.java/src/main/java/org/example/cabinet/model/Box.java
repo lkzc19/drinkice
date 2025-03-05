@@ -5,10 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
 public class Box {
-    private String filename;
+    private Long id;
+    private String name;
+    private String size;
+    private String code;
+    private LocalDateTime expireTime;
 }

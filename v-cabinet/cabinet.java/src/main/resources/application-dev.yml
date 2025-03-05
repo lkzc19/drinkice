@@ -1,9 +1,12 @@
 server:
-  port: 8000
+  port: 9100
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://127.0.0.1:5432/drinkice
+    url: jdbc:pgsql://127.0.0.1:5432/drinkice
     username: root
     password: zxczxc
+
+cabinet:
+  filepath: /Users/lkzc19/Projects/tmp

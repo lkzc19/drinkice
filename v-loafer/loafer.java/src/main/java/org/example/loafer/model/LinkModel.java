@@ -1,27 +1,20 @@
 package org.example.loafer.model;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.example.loafer.model.common.BaseModel;
 
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
 @TableName("loafer_link")
-public class Link {
-    @TableId
-    private Long id;
+public class LinkModel extends BaseModel {
     private String link;
     private String code;
-    private Integer visitNum;
+    private Integer visitNum = 0;
     private LocalDateTime expireAt;
-    private LocalDateTime createdAt;
-    private String createdBy;
 }

@@ -4,11 +4,6 @@ server:
 spring:
   application:
     name: cabinet.java
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:pgsql://127.0.0.1:5432/drinkice
-    username: root
-    password: zxczxc
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
