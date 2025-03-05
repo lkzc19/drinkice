@@ -1,0 +1,12 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: cabinet.java
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.example.cabinet.model
+  configuration:
+    map-underscore-to-camel-case: true
