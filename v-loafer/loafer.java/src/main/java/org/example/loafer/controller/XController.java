@@ -43,6 +43,7 @@ public class XController {
             ImmutableMap<String, Object> resp = ImmutableMap.<String, Object>builder()
                     .put("link", l.getLink())
                     .put("code", l.getCode())
+                    .put("visitNum", l.getVisitNum())
                     .build();
             return ResponseEntity.badRequest().body(resp);
         }
