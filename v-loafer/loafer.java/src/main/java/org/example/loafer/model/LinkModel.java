@@ -15,6 +15,6 @@ import java.time.LocalDateTime;
 public class LinkModel extends BaseModel {
     private String link;
     private String code;
-    private Integer visitNum = 0;
+    private Integer visitNum;
     private LocalDateTime expireAt;
 }

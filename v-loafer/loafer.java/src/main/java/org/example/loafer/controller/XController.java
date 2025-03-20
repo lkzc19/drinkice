@@ -64,6 +64,7 @@ public class XController {
         LinkModel l = LinkModel.builder()
                 .link(link)
                 .code(code)
+                .visitNum(0)
                 .expireAt(LocalDateTime.now().plusDays(1))
                 .build();
         linkMapper.insert(l);
