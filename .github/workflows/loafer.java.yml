@@ -8,7 +8,7 @@ on:
 
 env:
   WORKSPACE: 'v-loafer/loafer.java'
-  IMAGE_NAME: 'ghcr.io/lkzc19/loafer.java'
+  IMAGE_NAME: 'ghcr.io/lkzc19/loafer'
 
 jobs:
   build:
