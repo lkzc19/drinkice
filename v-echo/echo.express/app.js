@@ -1,8 +1,8 @@
 const express = require('express');
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV;
 const path = require('path');
 require('dotenv').config({
-  path: path.resolve(__dirname, `config/${env}.env`)
+  path: path.resolve(__dirname, `application-${env}.env`)
 });
 
 const app = express();
@@ -18,7 +18,7 @@ app.use(xmlparser());
 const router = require('./src/routes');
 app.use('/', router);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

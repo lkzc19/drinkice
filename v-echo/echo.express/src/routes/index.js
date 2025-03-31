@@ -4,7 +4,7 @@ const router = express.Router();
 router.all('*', (req, res) => {
     const body = { ...req.body };
     if (req.files) {
-        body.file = req.files.map(file => ({
+        body.__file__ = req.files.map(file => ({
             fieldname: file.fieldname,
             originalname: file.originalname,
             mimetype: file.mimetype
