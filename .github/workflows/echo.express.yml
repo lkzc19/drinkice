@@ -1,33 +1,26 @@
-name: loafer.java
+name: echo.express
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'v-loafer/loafer.java/**'
+      - 'v-echo/echo.express/**'
 
 env:
-  WORKSPACE: 'v-loafer/loafer.java'
-  IMAGE_NAME: 'ghcr.io/lkzc19/loafer.java'
+  WORKSPACE: 'v-echo/echo.express'
+  IMAGE_NAME: 'ghcr.io/lkzc19/echo.express'
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     permissions:
-      packages: write
       contents: read
-
+      packages: write
+    
     steps:
       - uses: actions/checkout@v4
-      - name: 'Set up JDK 17'
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: 'Package gradle project'
-        run: |
-          cd ${{ env.WORKSPACE }}
-          ./mvnw package -Dmaven.test.skip=true
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
       - name: 'Set up Docker Buildx'
         uses: docker/setup-buildx-action@v2
       - name: 'Login to GHCR'
