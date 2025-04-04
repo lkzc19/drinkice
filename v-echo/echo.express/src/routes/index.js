@@ -12,8 +12,8 @@ router.all('*', (req, res) => {
     }
     res.json({
         echo: "express",
-        url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
         method: req.method,
+        url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
         headers: req.headers,
         query: req.query,
         body: body
