@@ -15,20 +15,23 @@ RUN go mod tidy
 # RUN CGO_ENABLED=0 GOOS=${GOOS} GOARCH=${GOARCH} go build -o ./buildx/app
 RUN go build -o ./buildx/app
 
+
 # 运行时阶段
 FROM scratch
+
+WORKDIR /app
 
 # 设置环境变量默认值
 ARG ACTIVE=dev
 ENV ACTIVE=${ACTIVE}
 
-WORKDIR /app
-
 # 复制编译后的二进制文件
 COPY --from=builder /app/buildx/app ./app
+COPY application-*.env .
+
 
 # 暴露端口
 EXPOSE 8080 9998
 
 # 启动命令
-CMD ["./app", "-e", "${ACTIVE}"]
+CMD ["./app"]

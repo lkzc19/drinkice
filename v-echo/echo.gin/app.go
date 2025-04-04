@@ -1,6 +1,8 @@
 package main
 
 import (
+	"flag"
+	"os"
 	"strconv"
 
 	"echo.gin/internal/config"
@@ -9,7 +11,14 @@ import (
 )
 
 func main() {
-	config := config.LoadConfig()
+	// 配合docker传入变量选择配置文件
+	env := os.Getenv("ACTIVE")
+	if env == "" {
+		flag.StringVar(&env, "e", "dev", "Environment configuration")
+	}
+	flag.Parse()
+
+	config := config.LoadConfig(env)
 	r := gin.Default()
 	router.Route(r)
 	r.Run(":" + strconv.Itoa(config.Port))
