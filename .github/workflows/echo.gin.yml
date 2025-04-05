@@ -8,7 +8,7 @@ on:
 
 env:
   WORKSPACE: 'v-echo/echo.gin'
-  IMAGE_NAME: 'ghcr.io/lkzc19/echo.gin'
+  IMAGE_NAME: 'ghcr.io/lkzc19/echo_gin'
 
 jobs:
   build-push:
